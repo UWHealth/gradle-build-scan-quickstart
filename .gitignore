@@ -2,6 +2,7 @@
 # ------
 .gradle
 /build
+/logs
 
 # IDEA
 # ----
@@ -51,3 +52,5 @@ atlassian-ide-plugin.xml
 # HPROF
 # -----
 *.hprof
+
+.vscode

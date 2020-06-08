@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 repositories {
@@ -7,6 +7,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.guava:guava:23.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
+    implementation 'org.apache.logging.log4j:log4j-core:2.13.3'
+    runtime 'org.apache.logging.log4j:log4j-core:2.13.3'
 }
+
+jar {
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+    
+    manifest {
+        attributes("Implementation-Title": "Gradle Example Scan",
+                   "Implementation-Version": archiveVersion,
+                   "Main-Class":  "example.Example",
+                   'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' '))
+    }
+}
+

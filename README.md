@@ -38,6 +38,12 @@ Alternatively, enable one of your own builds to produce build scans by following
 
 Read the [Gradle Build Scan Plugin User Manual][manual] to learn more about build scans and the build scan plugin.
 
+## Running the executable jar build by the project
+
+```bash
+java -jar -DSOME_PROPERTY=https://www.google.com .\build\libs\gradle-build-scan-quickstart.jar foo bar
+```
+
 ## Need help?
 
 Talk to us on the [Gradle forum][gradle-forum].
